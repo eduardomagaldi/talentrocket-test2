@@ -1,6 +1,16 @@
-yarn global add @angular/cli
-ng set --global packageManager=yarn
-ng new my-app
+# TalentRocket Angular Test
+
+```npm run start``` to develop. Open [http://localhost:4200](http://localhost:4200)
+
+```npm run build``` to generate production files. Bundled to dist folder.
+
+## Help commands
+
+```yarn global add @angular/cli```
+
+```ng set --global packageManager=yarn```
+
+```ng new my-app```
 
 # MyApp
 
