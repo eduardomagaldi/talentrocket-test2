@@ -1,0 +1,40 @@
+<p>
+  home works!
+</p>
+
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+	<div class="form-group" [class.has-error]="test.invalid && (test.dirty || test.touched)">
+
+		<label for="test" class="control-label">test</label>
+		<input
+			id="test"
+			name="test"
+			class="form-control"
+			required
+			minlength="4"
+			forbiddenName="eduardo"
+			ngControl="test"
+			[(ngModel)]="form.test"
+			#test="ngModel"
+			(input)="onClickMe()"
+			(ngModelChange)="modelChanged($event)"
+			>
+		<p class="help-block">
+			<span *ngIf="test.invalid && (test.dirty || test.touched)">
+				<span *ngIf="test.errors.required">
+					test is required.
+				</span>
+				<span *ngIf="test.errors.minlength">
+					test must be at least 4 characters long.
+				</span>
+				<span *ngIf="test.errors.forbiddenName">
+					test cannot be Bob.
+				</span>
+			</span>
+		</p>
+
+		<button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+	</div>
+
+</form>
