@@ -1,331 +1,271 @@
-<form (ngSubmit)="onSubmit()" #myForm="ngForm">
-	<div class="form-group" [class.has-error]="firstName.invalid && (firstName.dirty || firstName.touched)">
-		<label for="firstName" class="control-label">Vorname</label>
-		<input
-			type="text"
-			id="firstName"
-			name="firstName"
-			class="form-control"
-			required
-			minlength="2"
-			ngControl="firstName"
-			[(ngModel)]="form.firstName"
-			#firstName="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
-				<span *ngIf="firstName.errors.required">
-					Vorname is required.
-				</span>
-				<span *ngIf="firstName.errors.minlength">
-					Sie sollten min. 2 Zeichen eintragen.
-				</span>
-			</span>
-		</p>
-	</div>
-
-	<div class="form-group" [class.has-error]="lastName.invalid && (lastName.dirty || lastName.touched)">
-		<label for="lastName" class="control-label">Nachname</label>
-		<input
-			type="text"
-			id="lastName"
-			name="lastName"
-			class="form-control"
-			required
-			minlength="2"
-			ngControl="lastName"
-			[(ngModel)]="form.lastName"
-			#lastName="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-				<span *ngIf="lastName.errors.required">
-					Nachname is required.
-				</span>
-				<span *ngIf="lastName.errors.minlength">
-					Sie sollten min. 2 Zeichen eintragen.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-	<div class="form-group" [class.has-error]="companyName.invalid && (companyName.dirty || companyName.touched)">
-		<label for="companyName" class="control-label">Firmenname</label>
-		<input
-			type="text"
-			id="companyName"
-			name="companyName"
-			class="form-control"
-			required
-			minlength="2"
-			ngControl="companyName"
-			placeholder="Name Ihrer Kanzlei oder Ihres Unternehmens"
-			[(ngModel)]="form.companyName"
-			#companyName="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)">
-				<span *ngIf="companyName.errors.required">
-					Firmenname is required.
-				</span>
-				<span *ngIf="companyName.errors.minlength">
-					Sie sollten min. 2 Zeichen eintragen.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<div class="form-group" [class.has-error]="billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)">
-		<label for="billingAddress" class="control-label">Rechnungsadresse</label>
-		<input
-			type="text"
-			id="billingAddress"
-			name="billingAddress"
-			class="form-control"
-			required
-			minlength="2"
-			ngControl="billingAddress"
-			placeholder="Straße und Hausnummer"
-			[(ngModel)]="form.billingAddress"
-			#billingAddress="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)">
-				<span *ngIf="billingAddress.errors.required">
-					Rechnungsadresse is required.
-				</span>
-				<span *ngIf="billingAddress.errors.minlength">
-					Sie sollten min. 2 Zeichen eintragen.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-
-
-
-
-
-
-
-	<div class="form-group" [class.has-error]="additionalInformation.invalid && (additionalInformation.dirty || additionalInformation.touched)">
-		<label for="additionalInformation" class="control-label">Zusätzliche Informationen</label>
-		<input
-			type="text"
-			id="additionalInformation"
-			name="additionalInformation"
-			class="form-control"
-			ngControl="additionalInformation"
-			placeholder="Zusätzliche Informationen"
-			[(ngModel)]="form.additionalInformation"
-			#additionalInformation="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="additionalInformation.invalid && (additionalInformation.dirty || additionalInformation.touched)">
-			</span>
-		</p>
-	</div>
-
-
-
-
-
-
-
-
-
-
-	<div class="form-group" [class.has-error]="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
-		<label for="zipCode" class="control-label">Postleitzahl</label>
-		<input
-			type="text"
-			id="zipCode"
-			name="zipCode"
-			class="form-control"
-			required
-			minlength="5"
-			maxlength="5"
-			ngControl="zipCode"
-			placeholder="Postleitzahl"
-			numbersOnly
-			[(ngModel)]="form.zipCode"
-			#zipCode="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
-				<span *ngIf="zipCode.errors.required">
-					Postleitzahl is required.
-				</span>
-				<span *ngIf="zipCode.errors.minlength">
-					Eine Postleitzahl besteht aus 5 Nummern.
-				</span>
-				<span *ngIf="zipCode.errors.maxlength">
-					Eine Postleitzahl besteht aus 5 Nummern.
-				</span>
-				<span *ngIf="zipCode.errors.numbersOnly">
-					Only numbers allowed.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-
-
-	<div class="form-group" [class.has-error]="city.invalid && (city.dirty || city.touched)">
-		<label for="city" class="control-label">Stadt</label>
-		<input
-			type="text"
-			id="city"
-			name="city"
-			class="form-control"
-			required
-			minlength="2"
-			ngControl="city"
-			placeholder="Stadt"
-			[(ngModel)]="form.city"
-			#city="ngModel"
-			(input)="onClickMe()"
-			(ngModelChange)="modelChanged($event)"
-			>
-		<p class="help-block">
-			<span *ngIf="city.invalid && (city.dirty || city.touched)">
-				<span *ngIf="city.errors.required">
-					Stadt is required.
-				</span>
-				<span *ngIf="city.errors.minlength">
-					Sie sollten min. 2 Zeichen eintragen.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-
-	<div class="form-group" [class.has-error]="termsOfService.invalid && (termsOfService.dirty || termsOfService.touched)">
-		<label for="termsOfService" class="control-label">
-			<input
-				type="checkbox"
-				id="termsOfService"
-				name="termsOfService"
-				required
-				ngControl="termsOfService"
-				[(ngModel)]="form.termsOfService"
-				#termsOfService="ngModel"
-				(input)="onClickMe()"
-				(ngModelChange)="modelChanged($event)"
-				>
-				Ich habe die Allgemeinen Geschäftsbedingungen gelesen und stimme diesen ausdrücklich zu.
-		</label>
-		<p class="help-block">
-			<span *ngIf="termsOfService.invalid && (termsOfService.dirty || termsOfService.touched)">
-				<span *ngIf="termsOfService.errors.required">
-					Bitte stimmen sie den Allgemeinen Geschäftsbeziehungen zu.
-				</span>
-			</span>
-		</p>
-	</div>
-
-
-	<div class="form-group" [class.has-error]="newsletter.invalid && (newsletter.dirty || newsletter.touched)">
-		<label for="newsletter" class="control-label">
-			<input
-				type="checkbox"
-				id="newsletter"
-				name="newsletter"
-				ngControl="newsletter"
-				[(ngModel)]="form.newsletter"
-				#newsletter="ngModel"
-				(input)="onClickMe()"
-				(ngModelChange)="modelChanged($event)"
-				>
-				Ich möchte in Zukunft über weitere Features per Mail informiert werden.
-		</label>
-		<p class="help-block">
-			<span *ngIf="newsletter.invalid && (newsletter.dirty || newsletter.touched)">
-			</span>
-		</p>
-	</div>
-
-
-
-	<button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</form>
+<h1>Lorem ipsum dolor</h1>
+
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+
+<div class="box">
+
+	<h2>Lorem ipsum dolor</h2>
+
+	<form class="form-horizontal" (ngSubmit)="onSubmit()" #myForm="ngForm">
+		<div class="form-group" [class.has-error]="firstName.invalid && (firstName.dirty || firstName.touched)">
+			<label for="firstName" class="control-label col-sm-3">Vorname</label>
+			<div class="col-sm-9">
+				<input
+					type="text"
+					id="firstName"
+					name="firstName"
+					class="form-control"
+					required
+					minlength="2"
+					ngControl="firstName"
+					[(ngModel)]="form.firstName"
+					#firstName="ngModel"
+					(input)="onClickMe()"
+					(ngModelChange)="modelChanged($event)"
+					>
+				<p class="help-block">
+					<span *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+						<span *ngIf="firstName.errors.required">
+							Vorname is required.
+						</span>
+						<span *ngIf="firstName.errors.minlength">
+							Sie sollten min. 2 Zeichen eintragen.
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="lastName.invalid && (lastName.dirty || lastName.touched)">
+			<label for="lastName" class="control-label col-sm-3">Nachname</label>
+			<div class="col-sm-9">
+				<input
+					type="text"
+					id="lastName"
+					name="lastName"
+					class="form-control"
+					required
+					minlength="2"
+					ngControl="lastName"
+					[(ngModel)]="form.lastName"
+					#lastName="ngModel"
+					(input)="onClickMe()"
+					(ngModelChange)="modelChanged($event)"
+					>
+				<p class="help-block">
+					<span *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+						<span *ngIf="lastName.errors.required">
+							Nachname is required.
+						</span>
+						<span *ngIf="lastName.errors.minlength">
+							Sie sollten min. 2 Zeichen eintragen.
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="companyName.invalid && (companyName.dirty || companyName.touched)">
+			<label for="companyName" class="control-label col-sm-3">Firmenname</label>
+			<div class="col-sm-9">
+				<input
+					type="text"
+					id="companyName"
+					name="companyName"
+					class="form-control"
+					required
+					minlength="2"
+					ngControl="companyName"
+					placeholder="Name Ihrer Kanzlei oder Ihres Unternehmens"
+					[(ngModel)]="form.companyName"
+					#companyName="ngModel"
+					(input)="onClickMe()"
+					(ngModelChange)="modelChanged($event)"
+					>
+				<p class="help-block">
+					<span *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)">
+						<span *ngIf="companyName.errors.required">
+							Firmenname is required.
+						</span>
+						<span *ngIf="companyName.errors.minlength">
+							Sie sollten min. 2 Zeichen eintragen.
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)">
+			<label for="billingAddress" class="control-label col-sm-3">Rechnungsadresse</label>
+			<div class="col-sm-9">
+				<input
+					type="text"
+					id="billingAddress"
+					name="billingAddress"
+					class="form-control"
+					required
+					minlength="2"
+					ngControl="billingAddress"
+					placeholder="Straße und Hausnummer"
+					[(ngModel)]="form.billingAddress"
+					#billingAddress="ngModel"
+					(input)="onClickMe()"
+					(ngModelChange)="modelChanged($event)"
+					>
+				<p class="help-block">
+					<span *ngIf="billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)">
+						<span *ngIf="billingAddress.errors.required">
+							Rechnungsadresse is required.
+						</span>
+						<span *ngIf="billingAddress.errors.minlength">
+							Sie sollten min. 2 Zeichen eintragen.
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="additionalInformation.invalid && (additionalInformation.dirty || additionalInformation.touched)">
+			<div class="col-sm-offset-3 col-sm-9">
+				<input
+					type="text"
+					id="additionalInformation"
+					name="additionalInformation"
+					class="form-control"
+					ngControl="additionalInformation"
+					placeholder="Zusätzliche Informationen"
+					[(ngModel)]="form.additionalInformation"
+					#additionalInformation="ngModel"
+					(input)="onClickMe()"
+					(ngModelChange)="modelChanged($event)"
+					>
+				<p class="help-block">
+					<span *ngIf="additionalInformation.invalid && (additionalInformation.dirty || additionalInformation.touched)">
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-9">
+				<div class="row">
+					<div class="col-sm-4" [class.has-error]="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+						<input
+							type="text"
+							id="zipCode"
+							name="zipCode"
+							class="form-control"
+							required
+							minlength="5"
+							maxlength="5"
+							ngControl="zipCode"
+							placeholder="Postleitzahl"
+							numbersOnly
+							[(ngModel)]="form.zipCode"
+							#zipCode="ngModel"
+							(input)="onClickMe()"
+							(ngModelChange)="modelChanged($event)"
+							>
+						<p class="help-block">
+							<span *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+								<span *ngIf="zipCode.errors.required">
+									Postleitzahl is required.
+								</span>
+								<span *ngIf="zipCode.errors.minlength">
+									Eine Postleitzahl besteht aus 5 Nummern.
+								</span>
+								<span *ngIf="zipCode.errors.maxlength">
+									Eine Postleitzahl besteht aus 5 Nummern.
+								</span>
+								<span *ngIf="zipCode.errors.numbersOnly">
+									Only numbers allowed.
+								</span>
+							</span>
+						</p>
+					</div>
+
+					<div class="col-sm-8" [class.has-error]="city.invalid && (city.dirty || city.touched)">
+						<input
+							type="text"
+							id="city"
+							name="city"
+							class="form-control"
+							required
+							minlength="2"
+							ngControl="city"
+							placeholder="Stadt"
+							[(ngModel)]="form.city"
+							#city="ngModel"
+							(input)="onClickMe()"
+							(ngModelChange)="modelChanged($event)"
+							>
+						<p class="help-block">
+							<span *ngIf="city.invalid && (city.dirty || city.touched)">
+								<span *ngIf="city.errors.required">
+									Stadt is required.
+								</span>
+								<span *ngIf="city.errors.minlength">
+									Sie sollten min. 2 Zeichen eintragen.
+								</span>
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="termsOfService.invalid && (termsOfService.dirty || termsOfService.touched)">
+			<div class="col-sm-offset-3 col-sm-9 checkbox">
+				<label for="termsOfService" class="control-label">
+					<input
+						type="checkbox"
+						id="termsOfService"
+						name="termsOfService"
+						required
+						ngControl="termsOfService"
+						[(ngModel)]="form.termsOfService"
+						#termsOfService="ngModel"
+						(input)="onClickMe()"
+						(ngModelChange)="modelChanged($event)"
+						>
+						Ich habe die <strong>Allgemeinen Geschäftsbedingungen</strong> gelesen und stimme diesen ausdrücklich zu.
+				</label>
+				<p class="help-block">
+					<span *ngIf="termsOfService.invalid && (termsOfService.dirty || termsOfService.touched)">
+						<span *ngIf="termsOfService.errors.required">
+							Bitte stimmen sie den Allgemeinen Geschäftsbeziehungen zu.
+						</span>
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="newsletter.invalid && (newsletter.dirty || newsletter.touched)">
+			<div class="col-sm-offset-3 col-sm-9 checkbox">
+				<label for="newsletter" class="control-label">
+					<input
+						type="checkbox"
+						id="newsletter"
+						name="newsletter"
+						ngControl="newsletter"
+						[(ngModel)]="form.newsletter"
+						#newsletter="ngModel"
+						(input)="onClickMe()"
+						(ngModelChange)="modelChanged($event)"
+						>
+						Ich möchte in Zukunft über weitere Features per Mail informiert werden.
+				</label>
+				<p class="help-block">
+					<span *ngIf="newsletter.invalid && (newsletter.dirty || newsletter.touched)">
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div class="form-group text-right button-wrapper">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Submit</button>
+			</div>
+		</div>
+	</form>
+</div>
