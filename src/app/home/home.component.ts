@@ -16,8 +16,15 @@ export class HomeComponent implements OnInit {
 	title = 'Tour of Heroes';
 	clickMessage = '';
 	form = {
-		test: undefined,
-		name: undefined
+		firstName: undefined,
+		lastName: undefined,
+		companyName: undefined,
+		billingAddress: undefined,
+		additionalInformation: undefined,
+		zipCode: undefined,
+		city: undefined,
+		termsOfService: undefined,
+		newsletter: undefined
 	};
 
 	@ViewChild('myForm') myForm;
