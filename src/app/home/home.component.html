@@ -4,6 +4,38 @@
 
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
 
+
+
+
+
+
+
+	<input id="name" name="name" class="form-control"
+	       required minlength="3" forbiddenName="bob"
+	       [(ngModel)]="form.name" #name="ngModel" >
+
+	<div *ngIf="name.invalid && (name.dirty || name.touched)"
+	     class="alert alert-danger">
+
+	  <div *ngIf="name.errors.required">
+	    Name is required.
+	  </div>
+	  <div *ngIf="name.errors.minlength">
+	    Name must be at least 3 characters long.
+	  </div>
+	  <div *ngIf="name.errors.forbiddenName">
+	    Name cannot be Bob.
+	  </div>
+
+	</div>
+
+
+
+
+
+
+
+
 	<div class="form-group" [class.has-error]="test.invalid && (test.dirty || test.touched)">
 
 		<label for="test" class="control-label">test</label>
@@ -29,7 +61,7 @@
 					test must be at least 4 characters long.
 				</span>
 				<span *ngIf="test.errors.forbiddenName">
-					test cannot be Bob.
+					test cannot be eduardo.
 				</span>
 			</span>
 		</p>
