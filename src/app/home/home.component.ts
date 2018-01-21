@@ -8,13 +8,6 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-	// constructor() { }
-
-	// ngOnInit() {
-	// }
-
-	title = 'Tour of Heroes';
-	clickMessage = '';
 	form = {
 		firstName: undefined,
 		lastName: undefined,
@@ -30,16 +23,16 @@ export class HomeComponent implements OnInit {
 	@ViewChild('myForm') myForm;
 
 	ngOnInit(): void {
-		console.log('this.form.test', this.form.test);
 	}
 
 	onClickMe() {
-		this.clickMessage = 'You are my hero!';
+		console.log('click me');
 	}
 
 	onSubmit() {
 		// console.log('onSubmit', myForm.form.valid);
 		this.showForm();
+		alert('submitted!');
 	}
 
 	showForm() {
@@ -52,17 +45,7 @@ export class HomeComponent implements OnInit {
 	// 	private location: Location
 	// ) {}
 
-
-
 	modelChanged(newObj) {
 		console.log('newObj', newObj);
-
-
-		// console.log('newObj', newObj);
-		// console.log('this.myForm', this.myForm);
-		// if (this && this.form && this.form.test) {
-		// 	console.log('this.form.test', this.form.test);
-		// }
-		// console.log('this', this);
 	}
 }

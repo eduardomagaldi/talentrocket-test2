@@ -1,6 +1,4 @@
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-
-
 	<div class="form-group" [class.has-error]="firstName.invalid && (firstName.dirty || firstName.touched)">
 		<label for="firstName" class="control-label">Vorname</label>
 		<input
@@ -27,11 +25,6 @@
 			</span>
 		</p>
 	</div>
-
-
-
-
-
 
 	<div class="form-group" [class.has-error]="lastName.invalid && (lastName.dirty || lastName.touched)">
 		<label for="lastName" class="control-label">Nachname</label>
@@ -188,6 +181,7 @@
 			maxlength="5"
 			ngControl="zipCode"
 			placeholder="Postleitzahl"
+			numbersOnly
 			[(ngModel)]="form.zipCode"
 			#zipCode="ngModel"
 			(input)="onClickMe()"
@@ -203,6 +197,9 @@
 				</span>
 				<span *ngIf="zipCode.errors.maxlength">
 					Eine Postleitzahl besteht aus 5 Nummern.
+				</span>
+				<span *ngIf="zipCode.errors.numbersOnly">
+					Only numbers allowed.
 				</span>
 			</span>
 		</p>

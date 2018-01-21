@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
-import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
+import { NumbersOnlyValidatorDirective } from './shared/numbers-only.directive';
 
 @NgModule({
 	imports: [
@@ -23,7 +23,7 @@ import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 		AppComponent,
 		HomeComponent,
 		AboutComponent,
-		ForbiddenValidatorDirective
+		NumbersOnlyValidatorDirective
 	],
 	providers: [
 	],
